@@ -1,0 +1,3 @@
+[{"id":1,"marca":"Huawei","modelo":"P50","condicão":"Grade A","preco":"200","imagem":"./images/Mobile/Huawei/1.jpg","vendido":"no"},
+{"id":2,"marca":"Samsung","modelo":"Fold 3","condicão":"New","preco":"700","imagem":"./images/Mobile/Samsung/1.jpeg","vendido":"no"},
+{"id":3,"marca":"Iphone","modelo":"15","condicão":"New","preco":"500","imagem":"./images/Mobile/Apple/1.jpeg","vendido":"no"}]

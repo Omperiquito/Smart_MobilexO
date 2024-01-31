@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <title>Mobilex0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css"
+    /> -->
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              <img
+                src="images/Logo.png"
+                height="200"
+                alt="100"
+                loading="lazy"
+              />
+            </a>
+            <!-- Left links -->
+            <span class="navbar-brand mb-0 h1 mx-auto fs-1 brand-text">Mobilex0</span>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+              <li class="nav-item ">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-success mt-5 float-right"
+                  id="btnModalLogin"
+                >
+                  Login
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-success mt-5 float-right"
+                  id="btnModalRegistar"
+                >
+                  
+                  Register
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-warning d-block ms-2 mt-5 float-right"
+                  id="btnLogoff"
+                >
+                  Log off
+                </button>
+              </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+
+          <!-- Right elements -->
+          
+          <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <div class="container">
+      <hr>
+      
+
+    <!-- Modal para registar novo utilizador -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalRegistar"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Register new user
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameRegistar"
+                name="usernameRegistar"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLoginRegistar"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaRegistar"
+                name="senhaRegistar"
+                placeholder="Password"
+              />
+              <p id="statusRegistar"></p>
+            </div>
+            <div class="modal-footer d-block">
+              <button
+                id="btnCancelaRegistar"
+                class="btn btn-warning float-right"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn btn-success float-right"
+                id="btnSubmitRegistar"
+                onclick="validaRegisto()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para fazer login -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Insert Credentials
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="btnLoginClose"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameLogin"
+                name="usernameLogin"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLogin"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaLogin"
+                name="senhaLogin"
+                placeholder="Password"
+              />
+              <p id="passErroLogin"></p>
+              <p id="statusLogin"></p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe"
+                >Reminder</label
+              >
+            </div>
+            <div class="modal-footer d-block">
+              <p id="pRegistar" class="float-start">
+                No Account <a href="#">Register</a>
+              </p>
+              <button class="btn btn-warning float-right" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button
+                class="btn btn-success float-right"
+                id="btnSubmitLogin"
+                onclick="validaLogin()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container container-fluid">
+      <hr class="border border-primary border-3 opacity-75">
+      <h1 class="text-center">Phones</h1>
+      <hr class="border border-primary border-3 opacity-75">
+        <div class="container fluid text-center">
+        <div id="data-output" class="row justify-content-center">
+          
+
+        </div>
+      </div>
+
+    </div>
+    <hr class="border border-primary border-3 opacity-75">
+
+
+    <div  id="loginName" class="container fluid"> 
+
+      <hr class="border border-primary border-3 opacity-75">
+
+    </div>
+    <footer>
+
+      <p class="text-center">MobileXo - DW UAL 2024</p>
+      
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script> -->
+
+    <script src="js/users.js"></script>
+   <script >
+    fetch('./Mobile.json', {
+      method: 'GET',
+      headers: {
+          'Accept': 'application/json',
+      },
+  })
+  .then(response => response.json())
+  .then(Mobile => {
+    console.log(Mobile);
+    let placeholder = document.getElementById("data-output");
+    let out = "";
+    for (let phone of Mobile){
+         
+        out += `
+        
+        <div id="${phone.id}" class="card text-white bg-secondary ms-2 mb-3 mt-3 text-center" style="width: 19em;">
+          <div class="card-header">${phone.preco}€</div>
+          <div class="card-body">
+            <h5 class="card-title">${phone.marca} ${phone.modelo} </h5>
+            <p class="card-text">State: ${phone.condicão}</p>
+            <img class="rounded img-fluid" src="${phone.imagem}" width="200" alt="">
+            <br>
+          <button type="button" class="btn btn-success mt-2" id="compra${phone.id}" onclick="compra(${phone.id})">BUY</button>
+          </div>
+        </div>
+      
+
+        
+        `;
+    }
+
+    placeholder.innerHTML = out;
+
+})
+
+
+
+function compra(id){
+var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block"; 
+} else {
+    x.style.display = "none";
+    alert('Thank U')
+    
+}
+}
+
+
+
+
+  </script> 
+  
+  </body>
+</html>
